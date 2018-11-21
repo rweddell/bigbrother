@@ -4,7 +4,7 @@ Slackbot Security Guard
 ---
 
 ## System Diagram
-![alt text](https://github.com/estefanytorres/bigbrother/diagram.png "System Diagram")
+![System Diagram](https://github.com/estefanytorres/bigbrother/documentation/diagram.png "System Diagram")
 
 ---
 
