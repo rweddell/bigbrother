@@ -23,7 +23,7 @@ navigate to your projects folder using the terminal and type
     $ git clone https://github.com/estefanytorres/bigbrother.git
     ```
 
-**6. Install requirements**
+**6. Install requirements** (Under construction)
 
 you will need to build dlib previously, this is a [tutorial](https://www.youtube.com/watch?v=h0Uidh-sq9M) I used on how to do that if your not familiar with building in linux.
 
