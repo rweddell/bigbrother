@@ -14,8 +14,7 @@ slack_events_adapter = SlackEventAdapter(str(config.get("slack_signing_secret"))
 
 @slack_events_adapter.on("message")
 def handle_message(event_data):
-	print(event_data.get("event").get("user"))
-	if event_data.get("event").get("user") != config.get("bot_user"):
+	if event_data.get("event").get("subtype") is None and event_data.get("event").get("bot_id") is None:
 		message = event_data.get("event")
 		if os.path.isfile(request_file):
 			os.remove(request_file)

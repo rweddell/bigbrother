@@ -9,7 +9,7 @@ import numpy as np
 from cv2 import imwrite
 from sklearn import neighbors
 
-camera_nbr = 0
+camera_nbr = 1
 
 request_file = "tmp/request.pickle"
 response_file = "tmp/response.pickle"
@@ -27,7 +27,7 @@ class Guard:
 
 	def __init__(self):
 		self.min_frames_detection = 1
-		self.min_frams_non_detection = 5
+		self.min_frams_non_detection = 1
 		self.frames_detecting = 0
 		self.frames_not_detecting = 100
 		self.cam = cv2.VideoCapture(camera_nbr)
@@ -109,9 +109,14 @@ class Guard:
 		if self.members is None or len(self.labeled_db) < self.k:
 			result = {"error": "not enough data"}
 		else:
+
 			prediction = self.classifier.predict([face_encoding])
 			probability = self.classifier.predict_proba([face_encoding])
-			result = {"id": prediction[0], "probability": probability[0][0],
+			print("_______")
+			print(prediction)
+			print(probability)
+			print("_______")
+			result = {"id": prediction[0], "probability": probability[0][prediction[0]],
 					 "name": self.getMemberName(prediction[0])}
 		return result
 
@@ -231,7 +236,7 @@ class Frame:
 		return self.crop_face(self.img, self.face_locations[index])
 
 	def getFaceEncoding(self, index):
-		if index >= self.n_faces:
+		if index >= len(self.face_encodings):
 			return None
 		return self.face_encodings[index]
 
