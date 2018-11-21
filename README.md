@@ -19,17 +19,17 @@ Now you need to give a scope to your bot, you can do this at _Features > OAuth &
 
 navigate to your projects folder using the terminal and type
 
-    '''bash
+    ```
     $ git clone https://github.com/estefanytorres/bigbrother.git
-    '''
+    ```
 
 **6. Install requirements**
 
 you will need to build dlib previously, this is a [tutorial](https://www.youtube.com/watch?v=h0Uidh-sq9M) I used on how to do that if your not familiar with building in linux.
 
-    '''bash
+    ```
     $ pip install -r requirements.txt
-    '''
+    ```
 
 
 
