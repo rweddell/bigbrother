@@ -13,23 +13,67 @@ First you need your own slack workspace to try this at, if you don't use slack y
 
 Once you have a workspace you can create an app at [the slack api page](https://api.slack.com/), click start building and give a name and workspace to your app (I suggest you use bigbrother to keep the theme). Then at the left panel click on _Features > Bot Users_ and create a bot, add bot user and dont forget to save changes! 
 
-Now you need to give a scope to your bot, you can do this at _Features > OAuth & Permissions_
+**2. Configure your bot**
 
-**5. Clone this repository**
+Now you need to give a scope to your bot, you can do this at _Features > OAuth & Permissions_ in the scope section select chat:write:bot and save changes. 
 
-navigate to your projects folder using the terminal and type
+We also need to enable events and subscribe to them, go to _Features > Event Subscriptions_ and turn it on, in the subscribe to Bot Events section add only messages.channel for now.
+
+**3. Clone this repository**
+
+Navigate to your projects folder using the terminal and type
 
     ```
     $ git clone https://github.com/estefanytorres/bigbrother.git
     ```
 
-**6. Install requirements**
+**4. Install requirements**
 
-you will need to build dlib previously, this is a [tutorial](https://www.youtube.com/watch?v=h0Uidh-sq9M) I used on how to do that if your not familiar with building in linux.
+You will need to build dlib previously, this is a [tutorial](https://www.youtube.com/watch?v=h0Uidh-sq9M) I used on how to do that if your not familiar with building in linux.
+
+Then you can pip install all the python packages by typing in the bigbrother folder.
 
     ```
     $ pip install -r requirements.txt
     ```
+
+**5. Add configuration to your code**
+
+Create a configs.json file in your bot's directory and copy the slack bot token _(OAuth & Permissions > OAuth Tokens & Redirect URLs > Bot User OAuth Access Token)_ and the slack signing secret _(Basic Information > App Credentials > Signing Secret)_ from the app configuration in this format:
+
+
+    ```
+    {
+	"slack_bot_token":"XXXX-XXXXXXXXXXX-XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX",
+	"slack_signing_secret":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+    ```
+
+**6. Start your bot**
+
+You need three terminals to run bigbrother, in one you will run eyes.py by navigating to the folder and typing
+
+    ```
+    $ python eyes.py
+    ```
+
+In the second terminal run app.py with the following command
+
+    ```
+    $ python app.py
+    ```
+
+and finally you will need to download, install and run [ngrok](https://ngrok.com/) to make your localhost public, follow the instructions in the web page and launch port 3000 in this way
+
+    ```
+    $ ./ngrok http 3000
+    ```
+
+This will give you a list of public urls, copy the https one and add it to your app's configuration in the Events subscription Request URL field.
+
+**7. Start your bot**
+
+Install your app into the workspace at _Settings > Install App_, invite it to the channel you will use for training and start using your bot!
 
 
 
