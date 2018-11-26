@@ -23,7 +23,7 @@ We also need to enable events and subscribe to them, go to _Features > Event Sub
 
 Navigate to your projects folder using the terminal and type
 
-```
+```bash
 $ git clone https://github.com/estefanytorres/bigbrother.git
 ```
 
@@ -33,41 +33,41 @@ You will need to build dlib previously, this is a [tutorial](https://www.youtube
 
 Then you can pip install all the python packages by typing in the bigbrother folder.
 
-    ```
-    $ pip install -r requirements.txt
-    ```
+```bash
+$ pip install -r requirements.txt
+```
 
 **5. Add configuration to your code**
 
 Create a configs.json file in your bot's directory and copy the slack bot token _(OAuth & Permissions > OAuth Tokens & Redirect URLs > Bot User OAuth Access Token)_ and the slack signing secret _(Basic Information > App Credentials > Signing Secret)_ from the app configuration in this format:
 
 
-    ```
-    {
-	"slack_bot_token":"XXXX-XXXXXXXXXXX-XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX",
-	"slack_signing_secret":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-    }
-    ```
+``` json
+{
+"slack_bot_token":"XXXX-XXXXXXXXXXX-XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX",
+"slack_signing_secret":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+}
+```
 
 **6. Start your bot**
 
 You need three terminals to run bigbrother, in one you will run eyes.py by navigating to the folder and typing
 
-    ```
-    $ python eyes.py
-    ```
+```bash
+$ python eyes.py
+```
 
 In the second terminal run app.py with the following command
 
-    ```
-    $ python app.py
-    ```
+```bash
+$ python app.py
+```
 
 and finally you will need to download, install and run [ngrok](https://ngrok.com/) to make your localhost public, follow the instructions in the web page and launch port 3000 in this way
 
-    ```
-    $ ./ngrok http 3000
-    ```
+```bash
+$ ./ngrok http 3000
+```
 
 This will give you a list of public urls, copy the https one and add it to your app's configuration in the Events subscription Request URL field.
 
