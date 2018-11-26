@@ -23,9 +23,9 @@ We also need to enable events and subscribe to them, go to _Features > Event Sub
 
 Navigate to your projects folder using the terminal and type
 
-    ```
-    $ git clone https://github.com/estefanytorres/bigbrother.git
-    ```
+```
+$ git clone https://github.com/estefanytorres/bigbrother.git
+```
 
 **4. Install requirements**
 
