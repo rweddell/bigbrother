@@ -2,7 +2,6 @@ from slackclient import SlackClient
 from cv2 import imwrite
 import json
 
-# slack_api_token = "xoxb-460164821393-460770132274-FbKJyyQR7bPPCuqTZPuJCaLd"
 config = {}
 with open('configs.json') as json_data:
 	config = json.load(json_data)
