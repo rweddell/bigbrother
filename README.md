@@ -45,7 +45,8 @@ Create a configs.json file in your bot's directory and copy the slack bot token 
 ``` json
 {
 "slack_bot_token":"XXXX-XXXXXXXXXXX-XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX",
-"slack_signing_secret":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+"slack_signing_secret":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+"channel_training":"#XXXXXXXX"
 }
 ```
 
