@@ -13,3 +13,9 @@ test.py
 db/
 tmp/
 *venv/
+
+*.xml
+*.iml
+
+.idea\*
+.idea\vcs.xml
