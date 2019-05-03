@@ -9,7 +9,7 @@ import numpy as np
 from cv2 import imwrite
 from sklearn import neighbors
 
-camera_nbr = 0
+camera_nbr = 1
 
 request_file = "tmp/request.pickle"
 response_file = "tmp/response.pickle"
@@ -129,6 +129,7 @@ class Guard:
         file = open(request_file, "wb")
         pickle.dump(face_encoding, file)
         file.close()
+        print()
         print("Waiting for face labeling...")
 
         while True:
@@ -157,6 +158,7 @@ class Guard:
         file = open(request_file, "wb")
         pickle.dump("confirm", file)
         file.close()
+        print()
         print("Waiting for confirmation...")
         while True:
             time.sleep(1)
@@ -166,9 +168,9 @@ class Guard:
                 file.close()
                 response = message.get("text")
                 os.remove(response_file)
-                if response in ["yeah!", "yes", "yeah", "yep", "yes"]:
+                if response in ["yeah!", "yes", "yeah", "yep", "yes","Yeah!", "Yes", "Yeah", "Yep", "Yes"]:
                     return {"response": True}
-                if response in ["no", "no!", "nah", "nope"]:
+                if response in ["no", "no!", "nah", "nope","No", "No!", "Nah", "Nope"]:
                     return {"response": False}
                 return {"response": None, "text": response}
 

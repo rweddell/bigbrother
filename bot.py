@@ -17,7 +17,7 @@ class BigBrother:
         self.messages_posted = []
         self.images_posted = []
 
-    def post_message(self, message):
+    def post_message(self, message, permanent=False):
         response = self.client.api_call(
             "chat.postMessage",
             channel=self.channel,
@@ -28,7 +28,8 @@ class BigBrother:
             print("Message posted: " + message, response['ts'])
             if self.encoded_channel is '':
                 self.encoded_channel = response["channel"]
-            self.messages_posted.append(response["ts"])
+            if permanent==False:
+                self.messages_posted.append(response["ts"])
             return True
         else:
             print("Error: Message not posted: " + message)
@@ -55,6 +56,7 @@ class BigBrother:
 
     def delete_messages(self):
         # Message deletion works (4/25/19)
+        print()
         for timestamp in self.messages_posted:
             try:
                 print('Deleting message:', self.channel, timestamp)
@@ -76,6 +78,7 @@ class BigBrother:
 
     def delete_images(self):
         # Image deletion works (4/24/19)
+        print()
         for file in self.images_posted:
             try:
                 print('Deleting image:', file)

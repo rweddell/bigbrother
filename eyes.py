@@ -98,7 +98,8 @@ while True:
                             lastprediction[prediction.get("id")] = ts
                             if (ts - last_ts) > 5400:  # 15 minutes
                                 bigbrother.post_message(
-                                    prediction.get("name") + " just entered the office :slightly_smiling_face:")
+                                    prediction.get("name") + " just entered the office :slightly_smiling_face:",
+                                    permanent=False)
                         else:
                             if prediction.get("probability") > 0.7:
                                 img = frame.getFace(0)
@@ -144,7 +145,7 @@ while True:
                                             bigbrother.post_message(
                                                 "well, looks like you are busy right now, never mind")
                             else:
-                                print("here!")
+                                # print("here!")
                                 img = frame.getFace(0)
                                 bigbrother.post_image("guest", img)
                                 bigbrother.post_message(
@@ -155,7 +156,7 @@ while True:
                                         "Thanks, I'm learning, don't worry, I'll get better at this soon")
                                 else:
                                     bigbrother.post_message("Never mind, I guess you're busy")
-        time.sleep(15)
+        time.sleep(8)
         bigbrother.delete_messages()
         bigbrother.delete_images()
 
